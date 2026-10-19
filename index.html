@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rakkora — Nimuthu Witharana</title>
+  <meta name="description" content="Nimuthu Witharana — software engineering student. Socials, live sites and projects.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235a8a5a'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23fff'%3ER%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1f1f1f;
+      --bg-2: #2a2a2a;
+      --card: #2c2c2c;
+      --card-hover: #333833;
+      --text: #ececec;
+      --muted: #a8a8a8;
+      --accent: #7fb883;
+      --accent-strong: #5a8a5a;
+      --accent-dim: rgba(127, 184, 131, 0.14);
+      --border: rgba(127, 184, 131, 0.18);
+      --radius: 16px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f2f5f1;
+        --bg-2: #e8f0e8;
+        --card: #ffffff;
+        --card-hover: #f4faf4;
+        --text: #1e1e1e;
+        --muted: #5c5c5c;
+        --accent: #4a7a4a;
+        --accent-strong: #5a8a5a;
+        --accent-dim: rgba(90, 138, 90, 0.12);
+        --border: rgba(90, 138, 90, 0.22);
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Lora", Georgia, serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 85% -10%, var(--accent-dim), transparent 70%),
+        radial-gradient(700px 400px at -10% 110%, var(--accent-dim), transparent 70%),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 16px 40px; }
+
+    header { text-align: center; margin-bottom: 40px; }
+    .mark {
+      display: inline-flex; align-items: center; gap: 10px;
+      font: 400 .78rem "DM Mono", monospace; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--border); padding: 6px 14px; border-radius: 999px;
+    }
+    .mark i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 2.4s ease-in-out infinite; }
+    @keyframes blink { 50% { opacity: .25; } }
+    h1 {
+      font-family: "Syne", sans-serif; font-weight: 800; letter-spacing: -.02em;
+      font-size: clamp(2.4rem, 8vw, 3.8rem); line-height: 1.05; margin: 20px 0 12px;
+    }
+    h1 span { color: var(--accent); }
+    .roles { font: 400 .85rem "DM Mono", monospace; color: var(--muted); margin: 0 0 14px; }
+    .bio { color: var(--muted); max-width: 520px; margin: 0 auto; font-style: italic; }
+
+    .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+    .social {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px;
+      background: var(--card); border: 1px solid var(--border);
+      font: 400 .85rem "DM Mono", monospace; transition: transform .2s, border-color .2s, background .2s;
+    }
+    .social svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+    .social:hover { transform: translateY(-2px); border-color: var(--accent); background: var(--card-hover); }
+
+    section { margin-top: 44px; }
+    h2 {
+      font: 400 .78rem "DM Mono", monospace; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin: 0 0 14px; display: flex; align-items: center; gap: 12px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+    .sites { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .site {
+      position: relative; display: block; padding: 22px; border-radius: var(--radius);
+      background: var(--card); border: 1px solid var(--border); overflow: hidden;
+      transition: transform .25s, border-color .25s, background .25s;
+    }
+    .site::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent-strong), var(--accent));
+      transform: scaleX(0); transform-origin: left; transition: transform .35s;
+    }
+    .site:hover { transform: translateY(-3px); border-color: var(--accent); background: var(--card-hover); }
+    .site:hover::before { transform: scaleX(1); }
+    .site .emoji { font-size: 1.8rem; }
+    .site h3 { font-family: "Syne", sans-serif; font-size: 1.25rem; margin: 8px 0 4px; }
+    .site p { margin: 0 0 12px; color: var(--muted); font-size: .95rem; }
+    .url { font: 400 .8rem "DM Mono", monospace; color: var(--accent); }
+    .url::after { content: " ↗"; }
+
+    .projects { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .project {
+      display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: center;
+      padding: 16px 18px; border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+    }
+    .project h3 { font-family: "Syne", sans-serif; font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .project p { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .92rem; }
+    .badge { font: 400 .68rem "DM Mono", monospace; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; background: var(--accent-dim); color: var(--accent); }
+    .links { display: flex; gap: 8px; }
+    .links a {
+      font: 400 .78rem "DM Mono", monospace; padding: 6px 12px; border-radius: 999px;
+      border: 1px solid var(--border); transition: border-color .2s, color .2s;
+    }
+    .links a:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 520px) {
+      .project { grid-template-columns: 1fr; }
+      .links { grid-row: 3; }
+    }
+
+    footer { margin-top: 56px; text-align: center; font: 400 .78rem "DM Mono", monospace; color: var(--muted); }
+    footer a { color: var(--accent); }
+
+    .fade { opacity: 0; transform: translateY(14px); animation: in .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: var(--d, 0s); }
+    @keyframes in { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .fade { animation: none; opacity: 1; transform: none; } .mark i { animation: none; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <span class="mark fade"><i></i>rakkora.org</span>
+      <h1 class="fade" style="--d:.08s">Nimuthu <span>Witharana</span></h1>
+      <p class="roles fade" style="--d:.14s">Full-Stack Developer · Embedded Systems · Scrabble Champion</p>
+      <p class="bio fade" style="--d:.2s">Software engineering student from Sri Lanka, building polished, user-centred digital experiences.</p>
+
+      <nav class="socials fade" style="--d:.28s" aria-label="Social links">
+        <a class="social" href="https://www.linkedin.com/in/nimuthusw/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+        <a class="social" href="https://github.com/nimuthuSW" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
+        <a class="social" href="https://www.instagram.com/nimuthu_witharana/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>Instagram</a>
+        <a class="social" href="mailto:nimuthusw4@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 8.5L2.4 6.4V18h19.2V6.4L12 12.5zM3.6 6 12 11.3 20.4 6H3.6z"/></svg>Email</a>
+      </nav>
+    </header>
+
+    <section class="fade" style="--d:.36s" aria-labelledby="sites-h">
+      <h2 id="sites-h">Live sites</h2>
+      <div class="sites">
+        <a class="site" href="https://nimuthu.rakkora.org">
+          <span class="emoji">🧑‍💻</span>
+          <h3>Portfolio</h3>
+          <p>About me, skills, experience and everything I've built.</p>
+          <span class="url">nimuthu.rakkora.org</span>
+        </a>
+        <a class="site" href="https://aquatica.rakkora.org">
+          <span class="emoji">🌊</span>
+          <h3>Aquatica</h3>
+          <p>An interactive underwater website about protecting water sources and the ocean.</p>
+          <span class="url">aquatica.rakkora.org</span>
+        </a>
+        <a class="site" href="https://designmaniac.rakkora.org">
+          <span class="emoji">🎨</span>
+          <h3>Design Maniac</h3>
+          <p>A product &amp; interface design showcase — work, anatomy, playground and principles.</p>
+          <span class="url">designmaniac.rakkora.org</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="fade" style="--d:.44s" aria-labelledby="projects-h">
+      <h2 id="projects-h">Projects</h2>
+      <ul class="projects">
+        <li class="project">
+          <h3>Librioo <span class="badge">In progress</span></h3>
+          <div class="links"><a href="https://github.com/projectlibrioo-source/librioo-system" target="_blank" rel="noopener">Code</a><a href="https://youtu.be/OEIA4YoU0E8" target="_blank" rel="noopener">Demo</a></div>
+          <p>A smart library assistant robot combining embedded systems, web technologies and backend services.</p>
+        </li>
+        <li class="project">
+          <h3>Aquatica</h3>
+          <div class="links"><a href="https://github.com/nimuthuSW/aquatica" target="_blank" rel="noopener">Code</a><a href="https://aquatica.rakkora.org">Live</a></div>
+          <p>Animated, interactive site on protecting rivers, groundwater and oceans — projects, stats, quiz and pledge.</p>
+        </li>
+        <li class="project">
+          <h3>Zero Hunger Website</h3>
+          <div class="links"><a href="https://github.com/nimuthuSW/Feed-The-Future" target="_blank" rel="noopener">Code</a></div>
+          <p>A website on the UN SDG Zero Hunger goal, raising awareness and sharing ways to help end hunger.</p>
+        </li>
+        <li class="project">
+          <h3>Scrabble Showdown</h3>
+          <div class="links"><a href="https://github.com/nimuthuSW/Richmond_Showdown" target="_blank" rel="noopener">Code</a></div>
+          <p>Live results and pairings management for the Richmond Scrabble Showdown competition.</p>
+        </li>
+        <li class="project">
+          <h3>ODECS Website</h3>
+          <div class="links"><a href="https://github.com/nimuthuSW/odecs-website" target="_blank" rel="noopener">Code</a></div>
+          <p>A professional company website showcasing ODECS's services, projects and contact details.</p>
+        </li>
+        <li class="project">
+          <h3>RovioTek Website</h3>
+          <p>A modern business website presenting RovioTek's team, services and digital solutions.</p>
+        </li>
+      </ul>
+    </section>
+
+    <footer>© <span id="y">2026</span> Nimuthu Witharana · <a href="https://github.com/nimuthuSW" target="_blank" rel="noopener">more on GitHub ↗</a></footer>
+  </main>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
