@@ -1,5 +1,7 @@
 # rakkora.org
 
-Landing page for [rakkora.org](https://rakkora.org): socials, live sites and projects by Nimuthu Witharana.
+Personal site of Nimuthu Witharana — about, moments, projects, achievements, skills, education and contact — served at [rakkora.org](https://rakkora.org).
 
-A single static `index.html`, served by GitHub Pages from `main`.
+A single static `index.html` (no build step) with images in `images/`, published by GitHub Pages from `main`.
+
+Skill icons in `images/skills/` are from [Devicon](https://devicon.dev) (MIT).
