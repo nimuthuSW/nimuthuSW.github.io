@@ -188,11 +188,19 @@
     .link:hover { border-color: var(--accent); color: var(--accent); }
     .link.solid { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
     .link.solid:hover { background: var(--accent); color: var(--bg); }
-    .featured { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
-    .featured .card h3 { font-size: 1.7rem; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 1000px) { .project-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 700px) { .featured, .project-grid { grid-template-columns: 1fr; } }
+    .featured { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 24px; margin-bottom: 24px; }
+    .featured .card h3 { font-size: 1.6rem; }
+    .project-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .project-grid .card h3 { font-size: 1.2rem; }
+    @media (max-width: 1100px) { .project-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1100px) and (min-width: 701px) {
+      .featured { grid-template-columns: 1fr; }
+      .featured .card { flex-direction: row; }
+      .featured .card-img { flex: 0 0 46%; aspect-ratio: auto; min-height: 280px; }
+      .featured .card-img img { object-position: left top; }
+    }
+    @media (max-width: 700px) { .featured { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .project-grid { grid-template-columns: 1fr; } }
 
     /* ── Achievements ── */
     .ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -375,13 +383,23 @@
               </div>
             </div>
           </article>
+          <article class="card reveal" style="--d:.2s">
+            <a class="card-img" href="https://roviotek.web.app/" target="_blank" rel="noopener" tabindex="-1"><img src="images/project_roviotek_live.webp" alt="RovioTek website" loading="lazy"><span class="badge live">Live</span></a>
+            <div class="card-body">
+              <div class="card-index">03 — Featured</div>
+              <h3>RovioTek Website</h3>
+              <p>A modern business website created for RovioTek presenting team, services and digital solutions in a visually engaging, responsive format.</p>
+              <div class="chips"><span class="chip">React</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+              <div class="links"><a class="link solid" href="https://roviotek.web.app/" target="_blank" rel="noopener">Visit site ↗</a></div>
+            </div>
+          </article>
         </div>
 
         <div class="project-grid">
           <article class="card reveal">
             <div class="card-img"><img src="images/project_librioo.webp" alt="Librioo" loading="lazy"><span class="badge wip">In progress</span></div>
             <div class="card-body">
-              <div class="card-index">03</div>
+              <div class="card-index">04</div>
               <h3>Librioo</h3>
               <p>A smart library assistant robot combining embedded systems, web technologies and backend services to help users navigate and improve the library experience.</p>
               <div class="chips"><span class="chip">Spring Boot</span><span class="chip">React</span><span class="chip">MySQL</span><span class="chip">Arduino / ESP32</span></div>
@@ -394,7 +412,7 @@
           <article class="card reveal" style="--d:.08s">
             <div class="card-img"><img src="images/project_feedthefuture.webp" alt="Zero Hunger website" loading="lazy"><span class="badge">Completed</span></div>
             <div class="card-body">
-              <div class="card-index">04</div>
+              <div class="card-index">05</div>
               <h3>Zero Hunger Website</h3>
               <p>A website based on the UN SDG Zero Hunger goal, raising awareness and providing information and support options related to ending hunger.</p>
               <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
@@ -404,7 +422,7 @@
           <article class="card reveal" style="--d:.16s">
             <div class="card-img"><img src="images/project_showdown.webp" alt="Scrabble Showdown website" loading="lazy"><span class="badge">Completed</span></div>
             <div class="card-body">
-              <div class="card-index">05</div>
+              <div class="card-index">06</div>
               <h3>Scrabble Showdown</h3>
               <p>A website developed for Richmond Scrabble Showdown for live results and pairings management during the competition.</p>
               <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
@@ -414,21 +432,11 @@
           <article class="card reveal">
             <div class="card-img"><img src="images/project_odecs.webp" alt="ODECS website" loading="lazy"><span class="badge">Completed</span></div>
             <div class="card-body">
-              <div class="card-index">06</div>
+              <div class="card-index">07</div>
               <h3>ODECS Website</h3>
               <p>A professional company website for ODECS showcasing services, projects and contact info through a clean, responsive, modern interface.</p>
               <div class="chips"><span class="chip">React</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
               <div class="links"><a class="link" href="https://github.com/nimuthuSW/odecs-website" target="_blank" rel="noopener">GitHub</a></div>
-            </div>
-          </article>
-          <article class="card reveal" style="--d:.08s">
-            <a class="card-img" href="https://roviotek.web.app/" target="_blank" rel="noopener" tabindex="-1"><img src="images/project_roviotek_live.webp" alt="RovioTek website" loading="lazy"><span class="badge live">Live</span></a>
-            <div class="card-body">
-              <div class="card-index">07</div>
-              <h3>RovioTek Website</h3>
-              <p>A modern business website created for RovioTek presenting team, services and digital solutions in a visually engaging, responsive format.</p>
-              <div class="chips"><span class="chip">React</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-              <div class="links"><a class="link solid" href="https://roviotek.web.app/" target="_blank" rel="noopener">Visit site ↗</a></div>
             </div>
           </article>
         </div>
